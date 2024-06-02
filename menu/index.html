@@ -1,0 +1,64 @@
+---
+layout: default
+---
+<div class="page blog-index">
+    <h1>Bloggie Blog</h1>
+    <div class="col-two blog-cols">
+        <div class="col col-aside blog-recent">
+            {%include recentPosts.html%}
+        </div>
+        <div class="col col-content blog-previews">
+            {% for post in site.posts %}
+            <div class="blog-posts">
+                <header class="post-header">
+                    <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+                    <div class="post-byline">
+                        <img src="{{ post.gravatar }}" />
+                        <a href="{{ post.authorTwitter }}" class="social-link">Tw</a>
+                        by: {{ post.author }}
+                        <span> - {{ post.date | date: '%B %d, %Y' }}</span>
+                    </div>
+                </header>
+                <div class="posts-image" style="background-image:url({{ post.postHero }})"></div>
+                {{ post.excerpt }}
+                <a href="{{post.url}}">Read More</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<!-- <div class="page blog-index">
+    <div class="half-hero hero-home">
+        <div class="hero-content">
+            <h1>Get Nailed</h1>
+            <ul class="social-list">
+                <li>
+                    <a href="https://facebook.com/" class="social-link">Fb</a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/" class="social-link">Tw</a>
+                </li>
+                <li>
+                    <a href="https://github.com/" class="social-link">Gh</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="menu-container">
+        {% for post in site._posts %}
+        <div class="blog-posts">
+            <span>{{post.title}}</span>
+            <span>{{post.price}}</span>
+        </div>
+        {%endfor%}
+        <ul>
+            <li>Good Food 5.00</li>
+            <li>Better Food 8.00</li>
+            <li>More Better Food 12.00</li>
+            <li>Best Food 20.00</li>
+            <li>Delicious Food 22.00</li>
+            <li>No better food anywhere 32.00</li>
+        </ul>
+    </div>
+</div> -->
