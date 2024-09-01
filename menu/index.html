@@ -1,64 +1,77 @@
 ---
 layout: default
 ---
+<div class="half-hero">
+  <div class="hero-content">
+      <h1>Home of Motor City Darts</h1>
+      <img src="/images/MCD Black.jpg" alt="Motor City Darts">
+  </div>
+</div>
 <div class="page blog-index">
-    <h1>Bloggie Blog</h1>
-    <div class="col-two blog-cols">
-        <div class="col col-aside blog-recent">
-            {%include recentPosts.html%}
-        </div>
-        <div class="col col-content blog-previews">
-            {% for post in site.posts %}
+  <h1>Menu</h1>
+  <div class="col-two blog-cols">
+    <div class="col col-aside blog-recent">
+      <div class="menu-special">
+        <h4>Daily Specials</h4>
+        <ul class="blog-title-list">
+          {% for post in site.posts %}
+              {% if post.type == "special" %}
+                  <li>
+                      <label class="menu-special-title">{{ post.title }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ post.price }}</label>
+                      <br/><br/>
+                      <label class="menu-special-description">{{ post.description }}</label>
+                  </li>
+                  <hr/>
+              {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="menu-special" style="margin-top: 4em;">
+        <h4>Pizza</h4>
+        <ul class="blog-title-list">
+          {% for post in site.posts %}
+              {% if post.type == "pizza" %}
+                  <li>
+                      <label class="menu-special-title">{{ post.title }}</label><br/>
+                      <label class="menu-special-price">{{ post.price }}</label>
+                      <br/><br/>
+                      <label class="menu-special-description">{{ post.description }}</label>
+                  </li>
+                  <hr/>
+              {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+      
+    <div class="col col-content blog-previews">
+        <h1>Appetizers</h1>
+        {% for post in site.posts %}
+            {% if post.type == "appetizer" %}
+              <div class="blog-posts">
+                <header class="post-header">
+                  <h2>{{ post.title }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ post.price }}</h2>
+                  <div class="post-byline">
+                    <h4>{{ post.description }}</h4>
+                  </div>
+                </header>
+              </div>
+            {% endif %}          
+        {% endfor %}
+        <div style="padding-top: 50px;"></div>
+        <h1>Burgers</h1>
+        {% for post in site.posts %}
+            {% if post.type == "burger" %}
             <div class="blog-posts">
                 <header class="post-header">
-                    <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-                    <div class="post-byline">
-                        <img src="{{ post.gravatar }}" />
-                        <a href="{{ post.authorTwitter }}" class="social-link">Tw</a>
-                        by: {{ post.author }}
-                        <span> - {{ post.date | date: '%B %d, %Y' }}</span>
-                    </div>
+                  <h2>{{ post.title }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ post.price }}</h2>
+                  <div class="post-byline">
+                    <h4>{{ post.description }}</h4>
+                  </div>
                 </header>
-                <div class="posts-image" style="background-image:url({{ post.postHero }})"></div>
-                {{ post.excerpt }}
-                <a href="{{post.url}}">Read More</a>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
+              </div>
+            {% endif %}          
+        {% endfor %}
+      </div>
+  </div>
 </div>
-
-<!-- <div class="page blog-index">
-    <div class="half-hero hero-home">
-        <div class="hero-content">
-            <h1>Get Nailed</h1>
-            <ul class="social-list">
-                <li>
-                    <a href="https://facebook.com/" class="social-link">Fb</a>
-                </li>
-                <li>
-                    <a href="https://twitter.com/" class="social-link">Tw</a>
-                </li>
-                <li>
-                    <a href="https://github.com/" class="social-link">Gh</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="menu-container">
-        {% for post in site._posts %}
-        <div class="blog-posts">
-            <span>{{post.title}}</span>
-            <span>{{post.price}}</span>
-        </div>
-        {%endfor%}
-        <ul>
-            <li>Good Food 5.00</li>
-            <li>Better Food 8.00</li>
-            <li>More Better Food 12.00</li>
-            <li>Best Food 20.00</li>
-            <li>Delicious Food 22.00</li>
-            <li>No better food anywhere 32.00</li>
-        </ul>
-    </div>
-</div> -->
