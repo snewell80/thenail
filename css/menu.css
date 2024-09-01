@@ -1,0 +1,19 @@
+.menu-special {
+    border: 1px solid rgb(10, 7, 7);
+    padding: 1em;
+    text-align: center;
+    border-radius: 3%;
+    box-shadow: 5px 10px rgb(114, 110, 110);
+  }
+  
+  .menu-special h4 {
+    font-size: 1.5em;
+  }
+  
+  .menu-special-title {
+    font-weight: 700;
+  }
+  
+  .menu-special-description {
+    font-size: .85em;
+  }
